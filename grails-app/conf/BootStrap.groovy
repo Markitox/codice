@@ -3,6 +3,8 @@ import com.synergyj.auth.Role
 import com.synergyj.auth.RequestMap
 import org.grails.plugins.springsecurity.service.AuthenticateService
 import com.synergyj.codice.Cms
+import com.synergyj.codice.Menu
+import com.synergyj.codice.MenuItem
 import com.synergyj.codice.content.Content
 import com.synergyj.codice.content.Comment
 
@@ -53,6 +55,7 @@ class BootStrap {
 			new RequestMap(url:'/user/**',configAttribute:'ROLE_ADMIN').save()
 			new RequestMap(url:'/role/**',configAttribute:'ROLE_ADMIN').save()
 			new RequestMap(url:'/cms/**',configAttribute:'ROLE_ADMIN').save()
+			new RequestMap(url:'/cms/search/**',configAttribute:'IS_AUTHENTICATED_ANONYMOUSLY').save()
 			new RequestMap(url:'/menu/**',configAttribute:'ROLE_MANAGER').save()
 			new RequestMap(url:'/menuItem/**',configAttribute:'ROLE_MANAGER').save()
 
@@ -76,10 +79,13 @@ class BootStrap {
 			User user = User.findByUsername('admin')
 			
 			if(user){
+				def menu = new Menu(title:'Main Menu',priority:-5,).save()
+				def menuItem = new MenuItem(title:'Home',description:'Home menu',url:'http://grails.org.mx/codice/',priority:-5,menu:menu).save()
 				def cms = new Cms(name:'grails.org.mx',
 						domain:'http://grails.org.mx',
-						slogan:'Grails en tu idioma',admin:user)
-				cms.save(flush:true)
+						slogan:'Grails en tu idioma',admin:user,primaryLinks:menu).save(flush:true)
+				
+				println "Creating first post"
 				
 				def content = new Content(user:user,
 						title:'Now, You can post content...', 
@@ -146,6 +152,10 @@ class BootStrap {
 					.addTag("first")
 					.addTag("sample")
 				content2.save(flush:true)
+
+				println content2.tags
+				
+				println "Posts created..."
 				
 			}else{
 				println "There's not user to create content.."
