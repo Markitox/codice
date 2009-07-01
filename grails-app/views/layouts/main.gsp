@@ -27,15 +27,28 @@
 	<!--menu authorities-->
 	<div id="header">
 		<cms:primaryLinks>
+		<!-- MENU ITEM OF TEST
+		<li>
+			<a href="${createLink(controller:'content',action:'create',params:[contentType:'News'])}">
+				<g:message code="menu.send.news" />
+			</a>
+		</li>
+	-->
 			<g:isLoggedIn>
 				<li>
-					<a href="${createLink(controller:'content',action:'create',params:[contentType:'News'])}">Send news</a>
+					<a href="${createLink(controller:'content',action:'create',params:[contentType:'News'])}">
+						<g:message code="menu.send.news" />
+					</a>
 				</li>
 				<li>
-					<a href="${createLink(controller:'content',action:'create',params:[contentType:'Entry'])}">Post one entry</a>
+					<a href="${createLink(controller:'content',action:'create',params:[contentType:'Entry'])}">
+						<g:message code="menu.post.entry"/>
+					</a>
 				</li>
 				<li>
-					<a href="${createLink(controller:'content',action:'my')}">Mi contenido</a>
+					<a href="${createLink(controller:'content',action:'my')}">
+						<g:message code="menu.my.content"/>
+					</a>
 				</li>
 			</g:isLoggedIn>
 			
