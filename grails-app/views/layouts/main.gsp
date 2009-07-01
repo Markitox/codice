@@ -77,29 +77,37 @@
 			<ul>
 				<li>
 					<div class="news">
-						<a href="${createLink(controller:'content',action:'create',params:[contentType:'News'])}">Send news</a>
+						<a href="${createLink(controller:'content',action:'create',params:[contentType:'News'])}">
+							<g:message code="menu.send.news"/>
+						</a>
 					</div>
 				</li>
 				<li>
 					<div class="entry">
-						<a href="${createLink(controller:'content',action:'create',params:[contentType:'Entry'])}">Post one entry</a>
+						<a href="${createLink(controller:'content',action:'create',params:[contentType:'Entry'])}">
+							<g:message code="menu.post.entry" />
+						</a>
 					</div>
 				</li>
 				<li>
 					<div class="contents">
-						<a href="${createLink(controller:'content',action:'my')}">Ver mi contenido</a>
+						<a href="${createLink(controller:'content',action:'my')}">
+							<g:message code="menu.my.content" />
+						</a>
 					</div>
 				</li>
 				<g:ifAllGranted role="ROLE_ADMIN">
 				<li>
 					<div class="administer">
-						<a href="${createLink(controller:'content',action:'administer')}">Administrar</a>
+						<a href="${createLink(controller:'content',action:'administer')}">
+							<g:message code="role.admin" />
+						</a>
 					</div>
 				</li>
 				</g:ifAllGranted>
 				<li>
 					<div class="logout">
-						<g:link controller="logout">Logout</g:link>
+						<g:link controller="logout"><g:message code="menu.logout" /></g:link>
 					</div>
 				</li>
 			</ul>
@@ -112,12 +120,12 @@
 			<ul>
 				<li>
 					<div class="loginMenu">
-						<a href="#member">Login</a>
+						<a href="#member"><g:message code="menu.login" /></a>
 					</div>
 				</li>
 				<li>
 					<div class="register">
-						<g:link controller="register">Registrar</g:link>
+						<g:link controller="register"><g:message code="menu.register" /></g:link>
 					</div>
 				</li>
 			</ul>
@@ -135,11 +143,17 @@
 		-->
 		<br/>
 		<div id="left4" class="left4">
-			<h2>.: Recursos :.</h2>
+			<h2>.: <g:message code="menu.resources" /> :.</h2>
 			<ul>
-				<li><a href="http://grails.org/Download" target="_blank">Descargar</a></li>
-				<li><a href="http://grails.org/Installation">Instalar</a></li>
-				<li><a href="http://grails.org/Documentation">Documentacion</a></li>
+				<li><a href="http://grails.org/Download" target="_blank">
+						<g:message code="menu.resources.download" />
+					</a></li>
+				<li><a href="http://grails.org/Installation">
+						<g:message code="menu.resources.install" />
+					</a></li>
+				<li><a href="http://grails.org/Documentation">
+						<g:message code="menu.resources.documentation" />
+					</a></li>
 				<li><a href="http://podcast.springhispano.org/grails.xml">Podcast</a></li>
 			</ul>
 		</div>
