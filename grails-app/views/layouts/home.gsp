@@ -52,7 +52,19 @@
 				</li>
 			</g:isLoggedIn>
 			
-			<li class="last"></li>
+			<li class="flags">
+			<span style="padding-left: 5px;">&nbsp;</span>
+			</li>
+			<li class="flags">
+				<a href="${createLinkTo(dir:'')}?lang=en">
+				<img src="${createLinkTo(dir:'images/flags',file:'en.png')}" border="0" />
+				</a>
+			</li>
+			<li class="flags">
+				<a href="${createLinkTo(dir:'')}?lang=es">
+				<img src="${createLinkTo(dir:'images/flags',file:'es.png')}" border="0" />
+				</a>
+			</li>
 		</cms:primaryLinks>
 		
 		<a href="${createLinkTo(dir:'')}">

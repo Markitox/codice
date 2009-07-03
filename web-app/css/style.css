@@ -98,6 +98,18 @@ ul{
 	height:27px;
 	float:left;
 }
+
+#header ul li.flags{
+	background-image:none;
+	height:27px;
+	float: right;
+}
+
+#header ul li.flags a{
+	padding-right: 5px;
+	padding-left: 5px;
+}
+
 #header img.logo{
 	position:absolute;
 	left:20px;
